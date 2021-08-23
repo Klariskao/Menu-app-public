@@ -1,0 +1,7 @@
+#Mon Aug 23 15:24:23 BST 2021
+base.0=C\:\\Programming\\Kotlin_and_Android_dev\\Android_Studio\\TheApp3\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Programming\\Kotlin_and_Android_dev\\Android_Studio\\TheApp3\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex

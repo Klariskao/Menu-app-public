@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <!-- Strings used for category tags in second fragment's spinner -->
+    <string-array name="category">
+        <item>Starter</item>
+        <item>Soup</item>
+        <item>Main</item>
+        <item>Dessert</item>
+        <item>Drink</item>
+    </string-array>
+
+    <!-- Strings used for drink tags in second fragment's spinner -->
+    <string-array name="drink">
+        <item></item>
+        <item>Alcohol</item>
+        <item>Beer</item>
+        <item>Cocktail</item>
+        <item>Hot</item>
+        <item>Mocktail</item>
+        <item>Soft</item>
+        <item>Wine</item>
+    </string-array>
+
+    <!-- Strings used for category tags -->
+    <string name="starter">Starter</string>
+    <string name="soup">Soup</string>
+    <string name="main">Main</string>
+    <string name="dessert">Dessert</string>
+    <string name="drink">Drink</string>
+
+    <!-- Strings used for meat tags -->
+    <string name="beef">Beef</string>
+    <string name="chicken">Chicken</string>
+    <string name="fish">Fish</string>
+    <string name="pork">Pork</string>
+    <string name="seafood">Seafood</string>
+    <string name="vegan">Vegan</string>
+    <string name="vegetarian">Vegetarian</string>
+
+    <!-- Strings used for side tags -->
+    <string name="bread">Bread</string>
+    <string name="dumplings">Dumplings</string>
+    <string name="mushroom">Mushroom</string>
+    <string name="pasta">Pasta</string>
+    <string name="potatoes">Potatoes</string>
+    <string name="rice">Rice</string>
+    <string name="sauce">Sauce</string>
+
+    <!-- Strings used for drink tags -->
+    <string name="alcohol">Alcohol</string>
+    <string name="beer">Beer</string>
+    <string name="cocktail">Cocktail</string>
+    <string name="hot">Hot</string>
+    <string name="mocktail">Mocktail</string>
+    <string name="soft">Soft</string>
+    <string name="wine">Wine</string>
+
+    <!-- Strings used for allergen tags -->
+    <string name="celery">Celery</string>
+    <string name="crustaceans">Crustaceans</string>
+    <string name="eggs">Eggs</string>
+    <string name="gluten">Gluten</string>
+    <string name="lupin">Lupin</string>
+    <string name="milk">Milk</string>
+    <string name="molluscs">Molluscs</string>
+    <string name="mustard">Mustard</string>
+    <string name="nuts">Nuts</string>
+    <string name="peanuts">Peanuts</string>
+    <string name="sesame">Sesame</string>
+    <string name="soya">Soya</string>
+    <string name="sulphur_dioxide">Sulphur Dioxide</string>
+
+    <string name="no_results">No Results</string>
+
+    <string name="free_from">Free from:</string>
+    <string name="allergens_2">Allergens:</string>
+    <string name="category_2">Category:</string>
+    <string name="drink_2">Drink:</string>
+    <string name="meat_2">Meat:</string>
+    <string name="side_2">Side:</string>
+
+    <string name="add">Add</string>
+    <string name="return_string">Return</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="browse">Browse</string>
+    <string name="continue_string">Continue</string>
+
+    <string name="beef_hamburger_with_french_fries">Beef Hamburger with French Fries</string>
+    <string name="chicken_with_toast_and_sauce">Chicken with Toast and Sauce</string>
+    <string name="juicy_freshly_ground_beef_on_a_roasted_patty_served_with_a_side_of_golden_crunchy_fries">Juicy freshly ground beef on a roasted patty served with a side of golden, crunchy fries.</string>
+    <string name="_15_99">15.99</string>
+    <string name="pound">£</string>
+
+    <string name="menu_item">Menu Item</string>
+    <string name="submit_rating">Submit rating</string>
+    <string name="dish_image">Dish image</string>
+    <string name="add_a_photo">Change photo</string>
+    <string name="sample_text">Sample text</string>
+
+</resources>

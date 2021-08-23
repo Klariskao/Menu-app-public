@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E35000</color>
+    <color name="colorPrimaryDark">#B32400</color>
+    <color name="colorAccent">#B2000000</color>
+
+    <color name="starColor">#BFFFB700</color>
+    <color name="starColorTint">#DA573E00</color>
+</resources>

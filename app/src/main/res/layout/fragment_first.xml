@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toolbarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/colorPrimary"
+                        android:minHeight="?attr/actionBarSize"
+                        android:theme="?attr/actionBarTheme"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/toolbar3">
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.appcompat.widget.Toolbar>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/searchViewWrapper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="36dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+                        app:layout_constraintEnd_toStartOf="@+id/filterButton"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/toolbar3"
+                        app:layout_constraintTop_toTopOf="@+id/toolbar3">
+
+                        <SearchView
+                            android:id="@+id/searchView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFFF"
+                            android:backgroundTint="#FF5722"
+                            android:foregroundTint="#FFFFFF"
+                            android:searchIcon="@drawable/ic_baseline_search_24" />
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageButton
+                        android:id="@+id/filterButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/round_corners"
+                        android:backgroundTint="#FF5722"
+                        android:tint="#FAFAFA"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/toolbar3"
+                        app:layout_constraintTop_toTopOf="@+id/toolbar3"
+                        app:srcCompat="@drawable/ic_baseline_filter_alt_24" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Category filters -->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:scrollbarSize="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView1"
+                                app:layout_constraintStart_toStartOf="@+id/cardView1"
+                                app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+                                <TextView
+                                    android:id="@+id/categoryFilterText1"
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/starter"
+                                    android:textColor="#000000" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintStart_toEndOf="@+id/cardView1"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView2"
+                                app:layout_constraintStart_toStartOf="@+id/cardView2"
+                                app:layout_constraintTop_toTopOf="@+id/cardView2">
+
+                                <TextView
+                                    android:id="@+id/categoryFilterText2"
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/soup"
+                                    android:textColor="#000000" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintStart_toEndOf="@+id/cardView2"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView3"
+                                app:layout_constraintStart_toStartOf="@+id/cardView3"
+                                app:layout_constraintTop_toTopOf="@+id/cardView3">
+
+                                <TextView
+                                    android:id="@+id/categoryFilterText3"
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/main"
+                                    android:textColor="#000000" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintStart_toEndOf="@+id/cardView3"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView4"
+                                app:layout_constraintStart_toStartOf="@+id/cardView4"
+                                app:layout_constraintTop_toTopOf="@+id/cardView4">
+
+                                <TextView
+                                    android:id="@+id/categoryFilterText4"
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/dessert"
+                                    android:textColor="#000000" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cardView4"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView5"
+                                app:layout_constraintStart_toStartOf="@+id/cardView5"
+                                app:layout_constraintTop_toTopOf="@+id/cardView5">
+
+                                <TextView
+                                    android:id="@+id/categoryFilterText5"
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/drink"
+                                    android:textColor="#000000" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+                <!-- Horizontal line separator -->
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView1" />
+
+                <!-- Meat filters -->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:scrollbarSize="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView21"
+                                app:layout_constraintStart_toStartOf="@+id/cardView21"
+                                app:layout_constraintTop_toTopOf="@+id/cardView21">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/beef_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon1"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/beef"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView21"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView22"
+                                app:layout_constraintStart_toStartOf="@+id/cardView22"
+                                app:layout_constraintTop_toTopOf="@+id/cardView22">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/chicken_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon2"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/chicken"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView22"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView23"
+                                app:layout_constraintStart_toStartOf="@+id/cardView23"
+                                app:layout_constraintTop_toTopOf="@+id/cardView23">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/fish_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon3"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/fish"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView23"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView24"
+                                app:layout_constraintStart_toStartOf="@+id/cardView24"
+                                app:layout_constraintTop_toTopOf="@+id/cardView24">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon4"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/pork_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon4"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/pork"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView24"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView25"
+                                app:layout_constraintStart_toStartOf="@+id/cardView25"
+                                app:layout_constraintTop_toTopOf="@+id/cardView25">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon5"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/seafood_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon5"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/seafood"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView25"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView26"
+                                app:layout_constraintStart_toStartOf="@+id/cardView26"
+                                app:layout_constraintTop_toTopOf="@+id/cardView26">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon6"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/vegan_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon6"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/vegan"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView27"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cardView26"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView27"
+                                app:layout_constraintStart_toStartOf="@+id/cardView27"
+                                app:layout_constraintTop_toTopOf="@+id/cardView27">
+
+                                <ImageView
+                                    android:id="@+id/meatFilterIcon7"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/vegetarian_black" />
+
+                                <TextView
+                                    android:id="@+id/meatFilterText7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/meatFilterIcon7"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/vegetarian"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+                <!-- Horizontal line separator -->
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+
+                <!-- Side filters -->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:scrollbarSize="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView31"
+                                app:layout_constraintStart_toStartOf="@+id/cardView31"
+                                app:layout_constraintTop_toTopOf="@+id/cardView31">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/bread_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon1"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/bread"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView31"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView32"
+                                app:layout_constraintStart_toStartOf="@+id/cardView32"
+                                app:layout_constraintTop_toTopOf="@+id/cardView32">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/dumplings_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon2"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/dumplings"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView32"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView33"
+                                app:layout_constraintStart_toStartOf="@+id/cardView33"
+                                app:layout_constraintTop_toTopOf="@+id/cardView33">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/mushrooms_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon3"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/mushroom"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView34"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView33"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView34"
+                                app:layout_constraintStart_toStartOf="@+id/cardView34"
+                                app:layout_constraintTop_toTopOf="@+id/cardView34">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon4"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/pasta_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon4"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/pasta"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView34"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView35"
+                                app:layout_constraintStart_toStartOf="@+id/cardView35"
+                                app:layout_constraintTop_toTopOf="@+id/cardView35">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon5"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/potatoes_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon5"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/potatoes"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView36"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView35"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView36"
+                                app:layout_constraintStart_toStartOf="@+id/cardView36"
+                                app:layout_constraintTop_toTopOf="@+id/cardView36">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon6"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/rice_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon6"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/rice"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView37"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cardView36"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView37"
+                                app:layout_constraintStart_toStartOf="@+id/cardView37"
+                                app:layout_constraintTop_toTopOf="@+id/cardView37">
+
+                                <ImageView
+                                    android:id="@+id/sideFilterIcon7"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/sauce_black" />
+
+                                <TextView
+                                    android:id="@+id/sideFilterText7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/sideFilterIcon7"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/sauce"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+                <!-- Horizontal line separator -->
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView3" />
+
+                <!-- Drink filters -->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:scrollbarSize="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView41"
+                                app:layout_constraintStart_toStartOf="@+id/cardView41"
+                                app:layout_constraintTop_toTopOf="@+id/cardView41">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon1"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/alcohol_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon1"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/alcohol"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView42"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView41"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView42"
+                                app:layout_constraintStart_toStartOf="@+id/cardView42"
+                                app:layout_constraintTop_toTopOf="@+id/cardView42">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/beer_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon2"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/beer"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView43"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView42"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView43"
+                                app:layout_constraintStart_toStartOf="@+id/cardView43"
+                                app:layout_constraintTop_toTopOf="@+id/cardView43">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/cocktail_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon3"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/cocktail"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView43"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView44"
+                                app:layout_constraintStart_toStartOf="@+id/cardView44"
+                                app:layout_constraintTop_toTopOf="@+id/cardView44">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon4"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/hot_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon4"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/hot"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView44"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView45"
+                                app:layout_constraintStart_toStartOf="@+id/cardView45"
+                                app:layout_constraintTop_toTopOf="@+id/cardView45">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon5"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/mocktail_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon5"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/mocktail"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView46"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintStart_toEndOf="@id/cardView45"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView46"
+                                app:layout_constraintStart_toStartOf="@+id/cardView46"
+                                app:layout_constraintTop_toTopOf="@+id/cardView46">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon6"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/soft_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon6"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/soft"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/cardView46"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView47"
+                                app:layout_constraintStart_toStartOf="@+id/cardView47"
+                                app:layout_constraintTop_toTopOf="@+id/cardView47">
+
+                                <ImageView
+                                    android:id="@+id/drinkFilterIcon7"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/wine_black" />
+
+                                <TextView
+                                    android:id="@+id/drinkFilterText7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/drinkFilterIcon7"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:text="@string/wine"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+                <!-- Horizontal line separator -->
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/horizontalScrollView4" />
+
+                <!-- Allergy filters -->
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:scrollbarSize="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView51"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView51"
+                                app:layout_constraintStart_toStartOf="@+id/cardView51"
+                                app:layout_constraintTop_toTopOf="@+id/cardView51">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/free_from"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView52"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView51"
+                            app:layout_constraintStart_toEndOf="@+id/cardView51"
+                            app:layout_constraintTop_toTopOf="@+id/cardView51">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView52"
+                                app:layout_constraintStart_toStartOf="@+id/cardView52"
+                                app:layout_constraintTop_toTopOf="@+id/cardView52">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/celery"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView53"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView52"
+                            app:layout_constraintStart_toEndOf="@+id/cardView52"
+                            app:layout_constraintTop_toTopOf="@+id/cardView52">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView53"
+                                app:layout_constraintStart_toStartOf="@+id/cardView53"
+                                app:layout_constraintTop_toTopOf="@+id/cardView53">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/crustaceans"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView54"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView53"
+                            app:layout_constraintStart_toEndOf="@+id/cardView53"
+                            app:layout_constraintTop_toTopOf="@+id/cardView53">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView54"
+                                app:layout_constraintStart_toStartOf="@+id/cardView54"
+                                app:layout_constraintTop_toTopOf="@+id/cardView54">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/eggs"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView54"
+                            app:layout_constraintStart_toEndOf="@+id/cardView54"
+                            app:layout_constraintTop_toTopOf="@+id/cardView54">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView55"
+                                app:layout_constraintStart_toStartOf="@+id/cardView55"
+                                app:layout_constraintTop_toTopOf="@+id/cardView55">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/fish"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView56"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView55"
+                            app:layout_constraintStart_toEndOf="@+id/cardView55"
+                            app:layout_constraintTop_toTopOf="@+id/cardView55">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView56"
+                                app:layout_constraintStart_toStartOf="@+id/cardView56"
+                                app:layout_constraintTop_toTopOf="@+id/cardView56">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/gluten"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView57"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView56"
+                            app:layout_constraintStart_toEndOf="@+id/cardView56"
+                            app:layout_constraintTop_toTopOf="@+id/cardView56">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView57"
+                                app:layout_constraintStart_toStartOf="@+id/cardView57"
+                                app:layout_constraintTop_toTopOf="@+id/cardView57">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/lupin"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView58"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView57"
+                            app:layout_constraintStart_toEndOf="@+id/cardView57"
+                            app:layout_constraintTop_toTopOf="@+id/cardView57">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView58"
+                                app:layout_constraintStart_toStartOf="@+id/cardView58"
+                                app:layout_constraintTop_toTopOf="@+id/cardView58">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/milk"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView59"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView58"
+                            app:layout_constraintStart_toEndOf="@+id/cardView58"
+                            app:layout_constraintTop_toTopOf="@+id/cardView58">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView59"
+                                app:layout_constraintStart_toStartOf="@+id/cardView59"
+                                app:layout_constraintTop_toTopOf="@+id/cardView59">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/molluscs"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView60"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView59"
+                            app:layout_constraintStart_toEndOf="@+id/cardView59"
+                            app:layout_constraintTop_toTopOf="@+id/cardView59">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView60"
+                                app:layout_constraintStart_toStartOf="@+id/cardView60"
+                                app:layout_constraintTop_toTopOf="@+id/cardView60">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/mustard"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView61"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView60"
+                            app:layout_constraintStart_toEndOf="@+id/cardView60"
+                            app:layout_constraintTop_toTopOf="@+id/cardView60">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView61"
+                                app:layout_constraintStart_toStartOf="@+id/cardView61"
+                                app:layout_constraintTop_toTopOf="@+id/cardView61">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText11"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/nuts"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView62"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView61"
+                            app:layout_constraintStart_toEndOf="@+id/cardView61"
+                            app:layout_constraintTop_toTopOf="@+id/cardView61">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView62"
+                                app:layout_constraintStart_toStartOf="@+id/cardView62"
+                                app:layout_constraintTop_toTopOf="@+id/cardView62">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText12"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/peanuts"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView63"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView62"
+                            app:layout_constraintStart_toEndOf="@+id/cardView62"
+                            app:layout_constraintTop_toTopOf="@+id/cardView62">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView63"
+                                app:layout_constraintStart_toStartOf="@+id/cardView63"
+                                app:layout_constraintTop_toTopOf="@+id/cardView63">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/sesame"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView64"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView63"
+                            app:layout_constraintStart_toEndOf="@+id/cardView63"
+                            app:layout_constraintTop_toTopOf="@+id/cardView63">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView64"
+                                app:layout_constraintStart_toStartOf="@+id/cardView64"
+                                app:layout_constraintTop_toTopOf="@+id/cardView64">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/soya"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView65"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="horizontal"
+                            app:cardBackgroundColor="#DADADA"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="6dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/cardView64"
+                            app:layout_constraintStart_toEndOf="@+id/cardView64"
+                            app:layout_constraintTop_toTopOf="@+id/cardView64">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:layout_constraintEnd_toEndOf="@+id/cardView65"
+                                app:layout_constraintStart_toStartOf="@+id/cardView65"
+                                app:layout_constraintTop_toTopOf="@+id/cardView65">
+
+                                <TextView
+                                    android:id="@+id/allergyFilterText15"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:paddingLeft="2dp"
+                                    android:paddingRight="2dp"
+                                    android:text="@string/sulphur_dioxide"
+                                    android:textColor="#000000" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".FirstFragment">
+
+            <!-- Menu items list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/restaurantsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Latest item added to order -->
+
+            <TextView
+                android:id="@+id/noResultsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_results"
+                android:textColor="#AE000000"
+                android:textSize="24sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/restaurantsRecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/restaurantsRecyclerView"
+                app:layout_constraintTop_toTopOf="@+id/restaurantsRecyclerView"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- "Add" new menu item floating button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNewItemToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="8dp"
+        app:backgroundTint="#D8000000"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

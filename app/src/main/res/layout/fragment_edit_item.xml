@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditItem">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".SecondFragment">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/category_2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/itemAddCategory"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemAddDescription" />
+
+            <Button
+                android:id="@+id/returnToFirstFragButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_string"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/itemAddCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/pound"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/itemAddPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemAddName" />
+
+            <EditText
+                android:id="@+id/itemAddPrice"
+                android:layout_width="71dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/_15_99"
+                android:inputType="numberDecimal"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/itemAddCurrency"
+                app:layout_constraintTop_toBottomOf="@+id/itemAddName"
+                android:autofillHints="" />
+
+            <EditText
+                android:id="@+id/itemAddDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="@string/juicy_freshly_ground_beef_on_a_roasted_patty_served_with_a_side_of_golden_crunchy_fries"
+                android:inputType="textCapSentences"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemAddPrice" />
+
+            <EditText
+                android:id="@+id/itemAddName"
+                android:layout_width="372dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/beef_hamburger_with_french_fries"
+                android:inputType="textPersonName|textCapSentences"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/itemAddCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:entries="@array/category"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/Allergens"
+                app:layout_constraintTop_toBottomOf="@+id/itemAddDescription" />
+
+            <TextView
+                android:id="@+id/Allergens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/allergens_2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meatAndSideFiltersTable" />
+
+            <TableLayout
+                android:id="@+id/meatAndSideFiltersTable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemAddCategory"
+                tools:visibility="visible">
+
+                <!-- Row 1 Head -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/Meat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/meat_2"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="229dp"
+                        tools:layout_editor_absoluteY="172dp" />
+
+                    <TextView
+                        android:id="@+id/Side"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/side_2"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        tools:layout_editor_absoluteX="229dp"
+                        tools:layout_editor_absoluteY="172dp" />
+
+                </TableRow>
+
+                <!-- Row 2 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Beef"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/beef"
+                        tools:layout_editor_absoluteX="250dp"
+                        tools:layout_editor_absoluteY="183dp" />
+
+                    <CheckBox
+                        android:id="@+id/Bread"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/bread"
+                        tools:layout_editor_absoluteX="250dp"
+                        tools:layout_editor_absoluteY="183dp" />
+
+                </TableRow>
+
+                <!-- Row 3 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Chicken"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/chicken"
+                        tools:layout_editor_absoluteX="264dp"
+                        tools:layout_editor_absoluteY="215dp" />
+
+                    <CheckBox
+                        android:id="@+id/Dumplings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/dumplings"
+                        tools:layout_editor_absoluteX="264dp"
+                        tools:layout_editor_absoluteY="215dp" />
+
+                </TableRow>
+
+                <!-- Row 4 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Fish"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/fish"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Mushrooms"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/mushroom"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                </TableRow>
+
+                <!-- Row 5 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Pork"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/pork"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Pasta"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/pasta"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                </TableRow>
+
+                <!-- Row 6 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Seafood"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/seafood"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Potatoes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/potatoes"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                </TableRow>
+
+                <!-- Row 7 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/Vegan"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/vegan"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Rice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/rice"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                </TableRow>
+
+                <!-- Row 8 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Vegetarian"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/vegetarian"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Sauce"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/sauce"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Allergens">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Celery"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/celery"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Crustaceans"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/crustaceans"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Eggs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/eggs"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Fish_allergen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/fish"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Gluten"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/gluten"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Lupin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/lupin"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Milk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/milk"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Molluscs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/molluscs"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Mustard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/mustard"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Nuts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/nuts"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Peanuts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/peanuts"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Sesame"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/sesame"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <CheckBox
+                        android:id="@+id/Soya"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="8dp"
+                        android:text="@string/soya"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+
+                    <CheckBox
+                        android:id="@+id/Sulphur_dioxide"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:paddingEnd="8dp"
+                        android:text="@string/sulphur_dioxide"
+                        tools:layout_editor_absoluteX="172dp"
+                        tools:layout_editor_absoluteY="212dp" />
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/saveItemToMenuButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/drink_2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/itemAddCategory"
+                app:layout_constraintStart_toEndOf="@+id/itemAddCategory"
+                app:layout_constraintTop_toTopOf="@+id/itemAddCategory" />
+
+            <Spinner
+                android:id="@+id/itemAddDrink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/drink"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/dish_image"
+                android:paddingTop="8dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addPhotoButton2"
+                app:srcCompat="@drawable/food" />
+
+            <Button
+                android:id="@+id/addPhotoButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/add_a_photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.471"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

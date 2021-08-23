@@ -1,0 +1,22 @@
+com/example/myapplication/MenuItemInfoDirections.java
+ com.example.myapplication.MenuItemInfoDirections
+ com.example.myapplication.MenuItemInfoDirections$1
+ com.example.myapplication.MenuItemInfoDirections$ActionMenuItemInfoToEditItem
+com/example/myapplication/EditItemArgs.java
+ com.example.myapplication.EditItemArgs
+ com.example.myapplication.EditItemArgs$1
+ com.example.myapplication.EditItemArgs$Builder
+com/example/myapplication/BuildConfig.java
+ com.example.myapplication.BuildConfig
+com/example/myapplication/EditItemDirections.java
+ com.example.myapplication.EditItemDirections
+com/example/myapplication/MenuItemInfoArgs.java
+ com.example.myapplication.MenuItemInfoArgs
+ com.example.myapplication.MenuItemInfoArgs$1
+ com.example.myapplication.MenuItemInfoArgs$Builder
+com/example/myapplication/FirstFragmentDirections.java
+ com.example.myapplication.FirstFragmentDirections
+ com.example.myapplication.FirstFragmentDirections$1
+ com.example.myapplication.FirstFragmentDirections$ActionFirstFragmentToMenuItemInfo
+com/example/myapplication/SecondFragmentDirections.java
+ com.example.myapplication.SecondFragmentDirections
