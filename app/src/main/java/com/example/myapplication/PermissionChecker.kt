@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,22 +8,46 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.fragment_second.*
+import com.canhub.cropper.CropImageContract
+import com.canhub.cropper.CropImageContractOptions
+import com.canhub.cropper.CropImageOptions
+import com.canhub.cropper.CropImageView
 
 // Activity for granting permissions and image cropping
 class PermissionChecker: AppCompatActivity() {
 
     private val STORAGE_RQ = 100
-    private val GALLERY_REQUEST_CODE = 101
+
+    private val cropImage = registerForActivityResult(CropImageContract()) { result ->
+        if (result.isSuccessful) {
+            // Save drawable to shared pref photo
+            applicationContext.getSharedPreferences("photo", Context.MODE_PRIVATE).edit().apply {
+                putString("photo", result.uriContent.toString())
+            }.apply()
+            // Exit from activity
+            finish()
+        } else {
+            Log.e("TAG", "Crop error: ${result.error}")
+            finish()
+        }
+    }
+
+    private val pickImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            result.data?.data?.let { uri ->
+                launchImageCrop(uri)
+            }
+        } else {
+            Log.e("TAG", "Image selection error: Couldn't select that image from memory.")
+            finish()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,45 +56,18 @@ class PermissionChecker: AppCompatActivity() {
         checkForPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE, "Storage", STORAGE_RQ)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-
-            GALLERY_REQUEST_CODE -> {
-                if (resultCode == Activity.RESULT_OK) {
-                    data?.data?.let { uri ->
-                        launchImageCrop(uri)
-                    }
-                } else {
-                    Log.e("TAG", "Image selection error: Couldn't select that image from memory.")
-                    finish()
-                }
-            }
-
-            CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
-                val result = CropImage.getActivityResult(data)
-                if (resultCode == Activity.RESULT_OK) {
-                    // Save drawable to shared pref photo
-                    applicationContext.getSharedPreferences("photo", Context.MODE_PRIVATE).edit().apply {
-                        putString("photo", result.uri.toString())
-                    }.apply()
-
-                    // Exit from activity
-                    finish()
-
-                } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                    Log.e("TAG", "Crop error: ${result.error}")
-                }
-            }
-        }
-    }
-
     private fun launchImageCrop(uri: Uri){
-        CropImage.activity(uri)
-            .setGuidelines(CropImageView.Guidelines.ON)
-            .setAspectRatio(1920, 1080)
-            .start(this)
+        cropImage.launch(
+            CropImageContractOptions(
+                uri = uri,
+                cropImageOptions = CropImageOptions(
+                    guidelines = CropImageView.Guidelines.ON,
+                    aspectRatioX = 1920,
+                    aspectRatioY = 1080,
+                    fixAspectRatio = true
+                )
+            )
+        )
     }
 
     private fun pickFromGallery() {
@@ -80,7 +76,7 @@ class PermissionChecker: AppCompatActivity() {
         val mimeTypes = arrayOf("image/jpeg", "image/png", "image/jpg")
         intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
         intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-        startActivityForResult(intent, GALLERY_REQUEST_CODE)
+        pickImage.launch(intent)
     }
 
     private fun checkForPermission(permission: String, name: String, requestCode: Int){
@@ -97,12 +93,14 @@ class PermissionChecker: AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         fun innerCheck(name: String){
             if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(applicationContext, "$name permission refused", Toast.LENGTH_SHORT).show()
             }
             else{
                 Toast.makeText(applicationContext, "$name permission granted", Toast.LENGTH_SHORT).show()
+                pickFromGallery()
             }
         }
 

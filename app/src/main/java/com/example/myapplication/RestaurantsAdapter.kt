@@ -1,23 +1,22 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.data.MenuItem
-import kotlinx.android.synthetic.main.a_single_restaurant_row.view.*
+import com.example.myapplication.databinding.ASingleRestaurantRowBinding
 
 // Adapter class for Menu Items
 class RestaurantsAdapter(private val menuItems: MutableList<MenuItem>) : RecyclerView.Adapter<RestaurantsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.a_single_restaurant_row, parent, false)
-        return ViewHolder(view)
+        val binding = ASingleRestaurantRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     // Get number of menu items
@@ -30,7 +29,7 @@ class RestaurantsAdapter(private val menuItems: MutableList<MenuItem>) : Recycle
     }
 
     // Update adapter with new items
-    fun notifyChanges(oldList: MutableList<MenuItem>, newList: MutableList<MenuItem>) {
+    fun notifyChanges(oldList: List<MenuItem>, newList: List<MenuItem>) {
         val diff = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
             override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
                 return oldList[oldItemPosition].id == newList[newItemPosition].id
@@ -44,21 +43,22 @@ class RestaurantsAdapter(private val menuItems: MutableList<MenuItem>) : Recycle
         diff.dispatchUpdatesTo(this)
     }
 
-    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val binding: ASingleRestaurantRowBinding) : RecyclerView.ViewHolder(binding.root) {
         // Display info for each item on main page
+        @SuppressLint("SetTextI18n")
         fun bind(menuItem: MenuItem) {
-            itemView.menuItemName.text = menuItem.name
-            itemView.menuItemPrice.text = "${menuItem.currency}${"%.2f".format(menuItem.price)}"
-            itemView.menuItemRating.rating = (menuItem.rating_total / menuItem.rated_by).toFloat()
+            binding.menuItemName.text = menuItem.name
+            binding.menuItemPrice.text = "${menuItem.currency}${"%.2f".format(menuItem.price)}"
+            binding.menuItemRating.rating = (menuItem.rating_total / menuItem.rated_by).toFloat()
 
-            Glide.with(view)
+            Glide.with(binding.root)
                 .load(Uri.parse(menuItem.photo))
-                .into(itemView.menuItemImage)
+                .into(binding.menuItemImage)
 
             // When clicked on menu item photo, go to its info (new page)
-            view.menuItemImage.setOnClickListener {
+            binding.menuItemImage.setOnClickListener {
                 val action = FirstFragmentDirections.actionFirstFragmentToMenuItemInfo(menuItem.id)
-                view.findNavController().navigate(action)
+                binding.root.findNavController().navigate(action)
             }
         }
     }

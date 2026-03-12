@@ -14,22 +14,24 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.data.MenuItemData
-import kotlinx.android.synthetic.main.fragment_first.*
 import androidx.navigation.findNavController
 import com.example.myapplication.data.MenuItem
+import com.example.myapplication.databinding.FragmentFirstBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.fragment_first.cardView1
 
 // Main screen of the application listing Menu Items
 class FirstFragment : Fragment() {
 
+    private var _binding: FragmentFirstBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+    ): View {
+        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -87,13 +89,13 @@ class FirstFragment : Fragment() {
         }
 
         // Render menu items
-        restaurantsRecyclerView.apply {
+        binding.restaurantsRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = mAdapter
         }
 
         // On click of + button go to Second Fragment (add new item to menu)
-        addNewItemToMenu.setOnClickListener { view ->
+        binding.addNewItemToMenu.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
@@ -109,19 +111,19 @@ class FirstFragment : Fragment() {
         val selectedAllergenFilter = mutableListOf<String>()
 
         fun setCategoryFilters(){
-            val categoryFilters = listOf<CardView>(cardView1, cardView2, cardView3, cardView4, cardView5)
-            val categoryFilterTexts = listOf<TextView>(categoryFilterText1, categoryFilterText2, categoryFilterText3, categoryFilterText4, categoryFilterText5)
+            val categoryFilters = listOf<CardView>(binding.cardView1, binding.cardView2, binding.cardView3, binding.cardView4, binding.cardView5)
+            val categoryFilterTexts = listOf<TextView>(binding.categoryFilterText1, binding.categoryFilterText2, binding.categoryFilterText3, binding.categoryFilterText4, binding.categoryFilterText5)
 
-            val meatFilterIcons = listOf<ImageView>(meatFilterIcon1, meatFilterIcon2, meatFilterIcon3, meatFilterIcon4,
-                meatFilterIcon5, meatFilterIcon6, meatFilterIcon7)
+            val meatFilterIcons = listOf<ImageView>(binding.meatFilterIcon1, binding.meatFilterIcon2, binding.meatFilterIcon3, binding.meatFilterIcon4,
+                binding.meatFilterIcon5, binding.meatFilterIcon6, binding.meatFilterIcon7)
             val meatFilterUnclickedIconSources = listOf(R.drawable.beef_black, R.drawable.chicken_black, R.drawable.fish_black,
                 R.drawable.pork_black, R.drawable.seafood_black, R.drawable.vegan_black, R.drawable.vegetarian_black)
-            val sideFilterIcons = listOf<ImageView>(sideFilterIcon1, sideFilterIcon2, sideFilterIcon3, sideFilterIcon4,
-                sideFilterIcon5, sideFilterIcon6, sideFilterIcon7)
+            val sideFilterIcons = listOf<ImageView>(binding.sideFilterIcon1, binding.sideFilterIcon2, binding.sideFilterIcon3, binding.sideFilterIcon4,
+                binding.sideFilterIcon5, binding.sideFilterIcon6, binding.sideFilterIcon7)
             val sideFilterUnclickedIconSources = listOf(R.drawable.bread_black, R.drawable.dumplings_black, R.drawable.mushrooms_black,
                 R.drawable.pasta_black, R.drawable.potatoes_black, R.drawable.rice_black, R.drawable.sauce_black)
-            val drinkFilterIcons = listOf<ImageView>(drinkFilterIcon1, drinkFilterIcon2, drinkFilterIcon3, drinkFilterIcon4,
-                drinkFilterIcon5, drinkFilterIcon6, drinkFilterIcon7)
+            val drinkFilterIcons = listOf<ImageView>(binding.drinkFilterIcon1, binding.drinkFilterIcon2, binding.drinkFilterIcon3, binding.drinkFilterIcon4,
+                binding.drinkFilterIcon5, binding.drinkFilterIcon6, binding.drinkFilterIcon7)
             val drinkFilterUnclickedIconSources = listOf(R.drawable.alcohol_black, R.drawable.beer_black, R.drawable.cocktail_black,
                 R.drawable.hot_black, R.drawable.mocktail_black, R.drawable.soft_black, R.drawable.wine_black)
 
@@ -204,18 +206,18 @@ class FirstFragment : Fragment() {
         }
 
         fun setMeatFilters(){
-            val meatFilters = listOf<CardView>(cardView21, cardView22, cardView23, cardView24, cardView25, cardView26, cardView27)
-            val meatFilterIcons = listOf<ImageView>(meatFilterIcon1, meatFilterIcon2, meatFilterIcon3, meatFilterIcon4,
-                meatFilterIcon5, meatFilterIcon6, meatFilterIcon7)
+            val meatFilters = listOf<CardView>(binding.cardView21, binding.cardView22, binding.cardView23, binding.cardView24, binding.cardView25, binding.cardView26, binding.cardView27)
+            val meatFilterIcons = listOf<ImageView>(binding.meatFilterIcon1, binding.meatFilterIcon2, binding.meatFilterIcon3, binding.meatFilterIcon4,
+                binding.meatFilterIcon5, binding.meatFilterIcon6, binding.meatFilterIcon7)
             val meatFilterIconSources = listOf(R.drawable.beef, R.drawable.chicken, R.drawable.fish,
                 R.drawable.pork, R.drawable.seafood, R.drawable.vegan, R.drawable.vegetarian)
             val meatFilterUnclickedIconSources = listOf(R.drawable.beef_black, R.drawable.chicken_black, R.drawable.fish_black,
                 R.drawable.pork_black, R.drawable.seafood_black, R.drawable.vegan_black, R.drawable.vegetarian_black)
-            val meatFilterTexts = listOf<TextView>(meatFilterText1, meatFilterText2, meatFilterText3, meatFilterText4,
-                meatFilterText5, meatFilterText6, meatFilterText7)
+            val meatFilterTexts = listOf<TextView>(binding.meatFilterText1, binding.meatFilterText2, binding.meatFilterText3, binding.meatFilterText4,
+                binding.meatFilterText5, binding.meatFilterText6, binding.meatFilterText7)
 
-            val drinkFilterIcons = listOf<ImageView>(drinkFilterIcon1, drinkFilterIcon2, drinkFilterIcon3, drinkFilterIcon4,
-                drinkFilterIcon5, drinkFilterIcon6, drinkFilterIcon7)
+            val drinkFilterIcons = listOf<ImageView>(binding.drinkFilterIcon1, binding.drinkFilterIcon2, binding.drinkFilterIcon3, binding.drinkFilterIcon4,
+                binding.drinkFilterIcon5, binding.drinkFilterIcon6, binding.drinkFilterIcon7)
             val drinkFilterUnclickedIconSources = listOf(R.drawable.alcohol_black, R.drawable.beer_black, R.drawable.cocktail_black,
                 R.drawable.hot_black, R.drawable.mocktail_black, R.drawable.soft_black, R.drawable.wine_black)
 
@@ -297,15 +299,15 @@ class FirstFragment : Fragment() {
         }
 
         fun setSideFilters(){
-            val sideFilters = listOf<CardView>(cardView31, cardView32, cardView33, cardView34, cardView35, cardView36, cardView37)
-            val sideFilterIcons = listOf<ImageView>(sideFilterIcon1, sideFilterIcon2, sideFilterIcon3, sideFilterIcon4,
-                sideFilterIcon5, sideFilterIcon6, sideFilterIcon7)
+            val sideFilters = listOf<CardView>(binding.cardView31, binding.cardView32, binding.cardView33, binding.cardView34, binding.cardView35, binding.cardView36, binding.cardView37)
+            val sideFilterIcons = listOf<ImageView>(binding.sideFilterIcon1, binding.sideFilterIcon2, binding.sideFilterIcon3, binding.sideFilterIcon4,
+                binding.sideFilterIcon5, binding.sideFilterIcon6, binding.sideFilterIcon7)
             val sideFilterIconSources = listOf(R.drawable.bread, R.drawable.dumplings, R.drawable.mushrooms,
                 R.drawable.pasta, R.drawable.potatoes, R.drawable.rice, R.drawable.sauce)
             val sideFilterUnclickedIconSources = listOf(R.drawable.bread_black, R.drawable.dumplings_black, R.drawable.mushrooms_black,
                 R.drawable.pasta_black, R.drawable.potatoes_black, R.drawable.rice_black, R.drawable.sauce_black)
-            val sideFilterTexts = listOf<TextView>(sideFilterText1, sideFilterText2, sideFilterText3, sideFilterText4,
-                sideFilterText5, sideFilterText6, sideFilterText7)
+            val sideFilterTexts = listOf<TextView>(binding.sideFilterText1, binding.sideFilterText2, binding.sideFilterText3, binding.sideFilterText4,
+                binding.sideFilterText5, binding.sideFilterText6, binding.sideFilterText7)
 
             for(i in 0..6){
                 sideFilterIcons[i].tag = sideFilterUnclickedIconSources[i]
@@ -315,8 +317,8 @@ class FirstFragment : Fragment() {
                     var filteredList: MutableList<MenuItem>
                     val preFilteredList: MutableList<MenuItem>
 
-                    val drinkFilterIcons = listOf<ImageView>(drinkFilterIcon1, drinkFilterIcon2, drinkFilterIcon3, drinkFilterIcon4,
-                        drinkFilterIcon5, drinkFilterIcon6, drinkFilterIcon7)
+                    val drinkFilterIcons = listOf<ImageView>(binding.drinkFilterIcon1, binding.drinkFilterIcon2, binding.drinkFilterIcon3, binding.drinkFilterIcon4,
+                        binding.drinkFilterIcon5, binding.drinkFilterIcon6, binding.drinkFilterIcon7)
                     val drinkFilterUnclickedIconSources = listOf(R.drawable.alcohol_black, R.drawable.beer_black, R.drawable.cocktail_black,
                         R.drawable.hot_black, R.drawable.mocktail_black, R.drawable.soft_black, R.drawable.wine_black)
 
@@ -390,22 +392,22 @@ class FirstFragment : Fragment() {
         }
 
         fun setDrinkFilters(){
-            val drinkFilters = listOf<CardView>(cardView41, cardView42, cardView43, cardView44, cardView45, cardView46, cardView47)
-            val drinkFilterIcons = listOf<ImageView>(drinkFilterIcon1, drinkFilterIcon2, drinkFilterIcon3, drinkFilterIcon4,
-                drinkFilterIcon5, drinkFilterIcon6, drinkFilterIcon7)
+            val drinkFilters = listOf<CardView>(binding.cardView41, binding.cardView42, binding.cardView43, binding.cardView44, binding.cardView45, binding.cardView46, binding.cardView47)
+            val drinkFilterIcons = listOf<ImageView>(binding.drinkFilterIcon1, binding.drinkFilterIcon2, binding.drinkFilterIcon3, binding.drinkFilterIcon4,
+                binding.drinkFilterIcon5, binding.drinkFilterIcon6, binding.drinkFilterIcon7)
             val drinkFilterIconSources = listOf(R.drawable.alcohol, R.drawable.beer, R.drawable.cocktail,
                 R.drawable.hot, R.drawable.mocktail, R.drawable.soft, R.drawable.wine)
             val drinkFilterUnclickedIconSources = listOf(R.drawable.alcohol_black, R.drawable.beer_black, R.drawable.cocktail_black,
                 R.drawable.hot_black, R.drawable.mocktail_black, R.drawable.soft_black, R.drawable.wine_black)
-            val drinkFilterTexts = listOf<TextView>(drinkFilterText1, drinkFilterText2, drinkFilterText3, drinkFilterText4,
-                drinkFilterText5, drinkFilterText6, drinkFilterText7)
+            val drinkFilterTexts = listOf<TextView>(binding.drinkFilterText1, binding.drinkFilterText2, binding.drinkFilterText3, binding.drinkFilterText4,
+                binding.drinkFilterText5, binding.drinkFilterText6, binding.drinkFilterText7)
 
-            val meatFilterIcons = listOf<ImageView>(meatFilterIcon1, meatFilterIcon2, meatFilterIcon3, meatFilterIcon4,
-                meatFilterIcon5, meatFilterIcon6, meatFilterIcon7)
+            val meatFilterIcons = listOf<ImageView>(binding.meatFilterIcon1, binding.meatFilterIcon2, binding.meatFilterIcon3, binding.meatFilterIcon4,
+                binding.meatFilterIcon5, binding.meatFilterIcon6, binding.meatFilterIcon7)
             val meatFilterUnclickedIconSources = listOf(R.drawable.beef_black, R.drawable.chicken_black, R.drawable.fish_black,
                 R.drawable.pork_black, R.drawable.seafood_black, R.drawable.vegan_black, R.drawable.vegetarian_black)
-            val sideFilterIcons = listOf<ImageView>(sideFilterIcon1, sideFilterIcon2, sideFilterIcon3, sideFilterIcon4,
-                sideFilterIcon5, sideFilterIcon6, sideFilterIcon7)
+            val sideFilterIcons = listOf<ImageView>(binding.sideFilterIcon1, binding.sideFilterIcon2, binding.sideFilterIcon3, binding.sideFilterIcon4,
+                binding.sideFilterIcon5, binding.sideFilterIcon6, binding.sideFilterIcon7)
             val sideFilterUnclickedIconSources = listOf(R.drawable.bread_black, R.drawable.dumplings_black, R.drawable.mushrooms_black,
                 R.drawable.pasta_black, R.drawable.potatoes_black, R.drawable.rice_black, R.drawable.sauce_black)
 
@@ -464,11 +466,11 @@ class FirstFragment : Fragment() {
         }
 
         fun setAllergenFilters(){
-            val allergenFilters = listOf<CardView>(cardView52, cardView53, cardView54, cardView55, cardView56, cardView57,
-                cardView58, cardView59, cardView60, cardView61, cardView62, cardView63, cardView64, cardView65)
-            val allergenFilterTexts = listOf<TextView>(allergyFilterText2, allergyFilterText3, allergyFilterText4, allergyFilterText5,
-                allergyFilterText6, allergyFilterText7, allergyFilterText8, allergyFilterText9, allergyFilterText10,
-                allergyFilterText11, allergyFilterText12, allergyFilterText13, allergyFilterText14, allergyFilterText15)
+            val allergenFilters = listOf<CardView>(binding.cardView52, binding.cardView53, binding.cardView54, binding.cardView55, binding.cardView56, binding.cardView57,
+                binding.cardView58, binding.cardView59, binding.cardView60, binding.cardView61, binding.cardView62, binding.cardView63, binding.cardView64, binding.cardView65)
+            val allergenFilterTexts = listOf<TextView>(binding.allergyFilterText2, binding.allergyFilterText3, binding.allergyFilterText4, binding.allergyFilterText5,
+                binding.allergyFilterText6, binding.allergyFilterText7, binding.allergyFilterText8, binding.allergyFilterText9, binding.allergyFilterText10,
+                binding.allergyFilterText11, binding.allergyFilterText12, binding.allergyFilterText13, binding.allergyFilterText14, binding.allergyFilterText15)
 
             for(i in 0..13){
                 allergenFilters[i].setOnClickListener {
@@ -548,10 +550,10 @@ class FirstFragment : Fragment() {
         setAllergenFilters()
 
         // Hide or show filters
-        filterButton.setOnClickListener {
-            val scrollViews = listOf<HorizontalScrollView>(horizontalScrollView1, horizontalScrollView2,
-                horizontalScrollView3, horizontalScrollView4, horizontalScrollView5)
-            val views = listOf<View>(view1, view2, view3, view4)
+        binding.filterButton.setOnClickListener {
+            val scrollViews = listOf<HorizontalScrollView>(binding.horizontalScrollView1, binding.horizontalScrollView2,
+                binding.horizontalScrollView3, binding.horizontalScrollView4, binding.horizontalScrollView5)
+            val views = listOf<View>(binding.view1, binding.view2, binding.view3, binding.view4)
             if (scrollViews[0].isVisible){
                 scrollViews[4].visibility = View.GONE
                 for (i in 3 downTo 0){
@@ -569,7 +571,7 @@ class FirstFragment : Fragment() {
         }
 
         // SearchView to filer menu items
-        searchView2.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener{
+        binding.searchView2.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Submit function undefined
                 return false
@@ -578,7 +580,7 @@ class FirstFragment : Fragment() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 val allMenuItems = getMyMenuItems()
                 val oldList = menuItems.toMutableList()
-                var filteredList = mutableListOf<MenuItem>()
+                val filteredList = mutableListOf<MenuItem>()
                 // Search in menu items for names containing searched string
                 if(newText!!.isNotEmpty()){
                     val search = newText.toLowerCase()
@@ -594,10 +596,10 @@ class FirstFragment : Fragment() {
                 }
                 // If no matching items were found show "No results"
                 if(filteredList.isEmpty()){
-                    noResultsText.visibility = View.VISIBLE
+                    binding.noResultsText.visibility = View.VISIBLE
                 }
                 else{
-                    noResultsText.visibility = View.GONE
+                    binding.noResultsText.visibility = View.GONE
                 }
                 // Update adapter
                 menuItems.clear()
@@ -606,5 +608,10 @@ class FirstFragment : Fragment() {
                 return true
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
