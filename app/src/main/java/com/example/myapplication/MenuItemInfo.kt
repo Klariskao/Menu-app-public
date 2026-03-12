@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,25 +15,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.myapplication.data.MenuItem
 import com.example.myapplication.data.MenuItemData
+import com.example.myapplication.databinding.MenuItemInfoBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.menu_item_info.*
 
 // Fragment showing information on a selected Menu Item
 class MenuItemInfo : Fragment() {
 
     // Using Jetpack's Navigation Component library to send data between fragments
     private val args: MenuItemInfoArgs by navArgs()
+    private var _binding: MenuItemInfoBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.menu_item_info, container, false)
+    ): View {
+        _binding = MenuItemInfoBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     // Render menu item info on the page
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,15 +63,15 @@ class MenuItemInfo : Fragment() {
 
         // If data retrieved successfully, render the info
         if(menuItem != null) {
-            menuItemNameView.text = menuItem.name
-            menuItemDescriptionView.text = menuItem.description
-            menuItemPriceView.text = "${menuItem.currency}${"%.2f".format(menuItem.price)}"
+            binding.menuItemNameView.text = menuItem.name
+            binding.menuItemDescriptionView.text = menuItem.description
+            binding.menuItemPriceView.text = "${menuItem.currency}${"%.2f".format(menuItem.price)}"
             Glide.with(this)
                 .load(menuItem.photo.toUri())
-                .into(menuItemPhotoView)
-            ratingBarSetter.rating = (menuItem.rating_total / menuItem.rated_by).toFloat()
+                .into(binding.menuItemPhotoView)
+            binding.ratingBarSetter.rating = (menuItem.rating_total / menuItem.rated_by).toFloat()
 
-            menuItemAllergenesView.apply {
+            binding.menuItemAllergenesView.apply {
                 val myLayoutManager = LinearLayoutManager(activity)
                 myLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
                 layoutManager = myLayoutManager
@@ -75,15 +79,15 @@ class MenuItemInfo : Fragment() {
             }
 
             // On click on SUBMIT RATING save rating
-            submitRatingButton.setOnClickListener {
+            binding.submitRatingButton.setOnClickListener {
                 val currentMenuItems = getMyMenuItems()
                 val position = currentMenuItems.indexOf(menuItem)
 
                 menuItem.rated_by += 1
-                menuItem.rating_total += ratingBarSetter.rating.toDouble()
+                menuItem.rating_total += binding.ratingBarSetter.rating.toDouble()
                 Toast.makeText(activity, "Thank you for your rating", Toast.LENGTH_SHORT).show()
                 // Disable the button so that no more ratings can be submitted
-                submitRatingButton.isClickable = false
+                binding.submitRatingButton.isClickable = false
 
                 // Paste the edited item
                 currentMenuItems[position] = menuItem
@@ -103,7 +107,7 @@ class MenuItemInfo : Fragment() {
             }
 
             // On click on DELETE remove item from MenuItems and return to main screen
-            deleteItemButton.setOnClickListener {
+            binding.deleteItemButton.setOnClickListener {
                 val currentMenuItems = getMyMenuItems()
                 currentMenuItems.remove(menuItem)
                 val gson = Gson()
@@ -121,10 +125,15 @@ class MenuItemInfo : Fragment() {
             }
 
             // On click on EDIT go to EditItem screen
-            editItemButton.setOnClickListener {
+            binding.editItemButton.setOnClickListener {
                 val action = MenuItemInfoDirections.actionMenuItemInfoToEditItem(menuItem.id)
                 findNavController().navigate(action)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

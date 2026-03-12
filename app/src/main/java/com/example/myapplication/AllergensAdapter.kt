@@ -1,18 +1,16 @@
 package com.example.myapplication
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.filters_allergy.view.allergyFilterText
+import com.example.myapplication.databinding.FiltersAllergyBinding
 
 // Adapter for showing allergens in Menu Item Info
 class AllergensAdapter (var allergens: List<String>) : RecyclerView.Adapter<AllergensAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.filters_allergy, parent, false)
-        return ViewHolder(view)
+        val binding = FiltersAllergyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     // Get number of filter items
@@ -24,10 +22,10 @@ class AllergensAdapter (var allergens: List<String>) : RecyclerView.Adapter<Alle
         holder.bind(item)
     }
 
-    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val binding: FiltersAllergyBinding) : RecyclerView.ViewHolder(binding.root) {
         // Display each allergen
         fun bind(item: String) {
-            itemView.allergyFilterText.text = item
+            binding.allergyFilterText.text = item
         }
     }
 }
